@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+  
+  <h:head>
+    <title>Student Details</title>
+    <h:outputStylesheet library="css" name="tables.css"/>
+  </h:head>
+  
+  <h:body> 
+      <h:dataTable value="#{courseStudentController.courseStudentArray}" var="cs" headerClass="table-header"
+		rowClasses="table-odd-row,table-even-row">
+		<h:column>
+			  <f:facet name="header">Course ID</f:facet>
+			  #{cs.cID}
+		</h:column>
+		<h:column>
+			  <f:facet name="header">Course Name</f:facet>
+			  #{cs.cName}
+		</h:column>
+		<h:column>
+			  <f:facet name="header">Course Duration</f:facet>
+			  #{cs.duration}
+		</h:column>
+		<h:column>
+			  <f:facet name="header">Name</f:facet>
+			  #{cs.name}
+		</h:column>
+		<h:column>
+			  <f:facet name="header">Address</f:facet>
+			  #{cs.address}
+		</h:column>
+	</h:dataTable>
+	<h:link value="Home" outcome="index.xhtml"/>
+	<h:link value=" Courses" outcome="manage_courses.xhtml"/>
+
+  </h:body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+  
+	<f:metadata>
+	  <f:event type="preRenderView" 
+	      listener="#{studentController.loadStudents()}"/>
+	</f:metadata>
+
+  <h:head>
+    <title>Add Student</title>
+  </h:head>
+  
+  <h:body>
+  	<h:messages globalOnly="true" styleClass="error"/>
+    <h:form>
+	  <h1>Add Student</h1>
+	  Student ID: <h:inputText value="#{student.sid}" id="studentID" p:placeholder="Enter student ID" required="true" requiredMessage=" StudentID is mandatory"/>
+      <h:message for="studentID"/> 
+      <br/><br/>
+      Name: <h:inputText value="#{student.name}" id="studentName" p:placeholder="Enter student Name" required="true" requiredMessage=" Name is mandatory"/>
+      <h:message for="studentName"/> 
+      <br/><br/>
+      Address: <h:inputText value="#{student.address}" id="studentAddress" p:placeholder="Enter student address"/>
+      <br/><br/>
+      Course ID: <h:inputText value="#{student.cID}" id="studentCourseID" p:placeholder="Enter course ID" required="true" requiredMessage=" CourseID is mandatory"/>
+      <h:message for="studentCourseID"/> 
+      <br/><br/>
+      <h:commandButton value="Add" action="#{studentController.addStudent(student)}"/><br/>
+      <br/>
+	  <h:link value="Home" outcome="index.xhtml"/>
+	  <h:link value=" Students" outcome="manage_students.xhtml"/>
+  	</h:form>
+  </h:body>
+</html>
